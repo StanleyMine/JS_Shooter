@@ -9,7 +9,7 @@ class MyGame extends Game
     this.screenbox = new Rect(0,0);
     this.screenbox.collider = new RectCollider(this.screenbox, this.canvas.width, this.canvas.height);
     
-    this.player = new Rect(1000, 500);
+    this.player = new Rect(750, 500);
     this.player.friction = .2;
     this.player.color = "blue";
     this.player.collider = new CircleCollider(this.player, this.player.width / 2);
@@ -18,8 +18,8 @@ class MyGame extends Game
     this.bullets = [];
 
     this.createEnemies(new Vector2(0,0));
-
-    this.text = new Text("Enemies Killed: " + EnemiesKilled, 1350, 0);
+    this.text = new Text("Enemies Killed: " + EnemiesKilled, 1300, 10);
+    this.text1 = new Text("Enemies Alive: " + this.enemies.length, 1300, 40);
   }
 
   update()
@@ -75,6 +75,7 @@ class MyGame extends Game
     
     this.updateBullets();
     this.text.text = "Enemies Killed: " + EnemiesKilled;
+    this.text1.text = "Enemies Alive: " + this.enemies.length;
     this.updateEnemies();
   }
 
@@ -86,14 +87,15 @@ class MyGame extends Game
     enemy.height = 75;
     enemy.collider = new CircleCollider(enemy, enemy.width / 2);
     this.enemies.push(enemy);
-    
+    //console.log(enemy.position);
+    //console.log(enemy.position.y);
   }
   updateEnemies()
   {
     for(let i = 0; i < this.enemies.length; ++i){
       let enemy = this.enemies[i];
       enemy.update();
-      enemy.velocity.magnitude = 5;
+      enemy.velocity.magnitude = 2;
       enemy.velocity.angle = enemy.position.angleTo(this.player.position);
       if(enemy.collider.intersectsCircle(this.player.collider))
       {
@@ -111,9 +113,9 @@ class MyGame extends Game
     offset.magnitude = this.canvas.width / 2;
     offset.angle = Math.random() * 360;
     offset = offset.add(this.camera);
-    offset.x += this.camera.x;
-    offset.y += this.camera.y;
-    this.createEnemies(offset.position + (Math.random * 0.5));
+    offset.x += this.camera.x + this.canvas.width / 2;
+    offset.y += this.camera.y + this.canvas.height / 2;
+    this.createEnemies(offset);
   }
 
   updateBullets()
@@ -131,8 +133,11 @@ class MyGame extends Game
             this.bullets.splice(i--, 1);
             this.enemies.splice(j--,1);
             EnemiesKilled += 1;
-            if(this.enemies.length > 1)
-              return;
+            
+            this.respawnEnemy();
+            if(this.enemies.length > 5)
+            {return;}
+            
             this.respawnEnemy();
           }
         }
@@ -143,7 +148,7 @@ class MyGame extends Game
         }
     }
 
-    //this.text.text = "living bullets: " + this.bullets.length;
+    //this.text.text = "living enemies: " + this.bullets.length;
   }
   
   createBullet(position, angle)
@@ -172,6 +177,7 @@ class MyGame extends Game
 
   renderStatic()
   {
+    this.text1.render(this.ctx);
     this.text.render(this.ctx);
   }
 }
