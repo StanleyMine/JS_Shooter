@@ -1,4 +1,4 @@
-"use strict";
+import Vector2 from "./vector2.js";
 
 /** 
  * properties
@@ -66,3 +66,5 @@ class Object2D
     throw "no render method";
   }
 }
+
+export default Object2D;

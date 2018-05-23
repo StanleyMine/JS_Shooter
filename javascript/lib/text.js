@@ -1,4 +1,4 @@
-"use strict";
+import Object2D from "./object2d.js";
 
 // this class extends Object2D, so it has physics just like Rect
 
@@ -53,3 +53,5 @@ class Text extends Object2D
     ctx.restore();
   }
 }
+
+export default Text;

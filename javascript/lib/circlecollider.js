@@ -1,3 +1,5 @@
+import Collider from "./collider.js";
+
 class CircleCollider extends Collider
 {
   // owner is an object2d
@@ -21,3 +23,5 @@ class CircleCollider extends Collider
     return distance <= circleA.radius;
   }
 }
+
+export default CircleCollider;

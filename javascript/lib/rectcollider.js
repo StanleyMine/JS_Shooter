@@ -1,4 +1,4 @@
-"use strict";
+import Collider from "./collider.js";
 
 class RectCollider extends Collider
 {
@@ -68,3 +68,5 @@ class RectCollider extends Collider
     }
   }
 }
+
+export default RectCollider;
