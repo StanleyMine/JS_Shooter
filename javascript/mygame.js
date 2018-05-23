@@ -143,9 +143,7 @@ class MyGame extends Game
               enemy.health -= 1;
             }
 
-            
-            
-            this.respawnEnemy();
+           // this.respawnEnemy();
             if(this.enemies.length > 5)
             {return;}
             
