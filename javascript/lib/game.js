@@ -1,4 +1,5 @@
-"use strict";
+import Input from "./input.js";
+import Vector2 from "./vector2.js";
 
 class Game
 {
@@ -53,3 +54,5 @@ class Game
   renderStatic()
   { }
 }
+
+export default Game;

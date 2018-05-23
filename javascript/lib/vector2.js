@@ -1,5 +1,3 @@
-"use strict";
-
 /** 
  * properties
  * x float
@@ -177,3 +175,5 @@ class Vector2
     return Math.sqrt(differenceX ** 2 + differenceY ** 2)
   }
 }
+
+export default Vector2;

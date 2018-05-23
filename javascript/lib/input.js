@@ -1,4 +1,4 @@
-"use strict";
+import Vector2 from "./vector2.js"
 
 class Input
 {
@@ -116,3 +116,5 @@ class Input
     this.heldMouseButtons = [];
   }
 }
+
+export default Input;

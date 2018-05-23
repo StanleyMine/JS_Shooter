@@ -1,4 +1,4 @@
-"use strict";
+import Object2D from "./object2d.js";
 
 /** 
  * properties
@@ -87,3 +87,5 @@ class Rect extends Object2D
     ctx.restore();
   }
 }
+
+export default Rect;

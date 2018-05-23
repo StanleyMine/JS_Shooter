@@ -1,5 +1,12 @@
-"use strict";
+import Game from "./lib/game.js";
+import Text from "./lib/text.js";
+import Rect from "./lib/rect.js";
+import RectCollider from "./lib/rectcollider.js";
+import CircleCollider from "./lib/circlecollider.js";
+import Vector2 from "./lib/vector2.js";
+
 var EnemiesKilled = 0;
+
 class MyGame extends Game
 {
   constructor(canvas)
@@ -190,3 +197,5 @@ class MyGame extends Game
     this.text.render(this.ctx);
   }
 }
+
+export default MyGame;

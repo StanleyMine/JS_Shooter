@@ -7,3 +7,5 @@ class Collider
     this.owner = owner;
   }
 }
+
+export default Collider;

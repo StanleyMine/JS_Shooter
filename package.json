@@ -1,0 +1,23 @@
+{
+  "name": "js_shooter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx parcel Build.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StanleyMine/JS_Shooter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StanleyMine/JS_Shooter/issues"
+  },
+  "homepage": "https://github.com/StanleyMine/JS_Shooter#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "parcel": "^1.8.1"
+  }
+}
