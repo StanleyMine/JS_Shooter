@@ -25,6 +25,7 @@ class MyGame extends Game
     this.enemies = [];
     this.bullets = [];
 
+    
     this.createEnemies(new Vector2(0,0));
     this.text = new Text("Enemies Killed: " + EnemiesKilled, 1300, 10);
     this.text1 = new Text("Enemies Alive: " + this.enemies.length, 1300, 40);
@@ -34,7 +35,7 @@ class MyGame extends Game
   {
 
     if(this.player.position.x > this.canvas.width){
-      this.player.position.x = 0; 
+      this.player.position.x = 0;
     }
     if(this.player.position.x < 0){
       this.player.position.x = this.canvas.width; 
@@ -90,8 +91,16 @@ class MyGame extends Game
   createEnemies(position)
   {
     let enemy = new Rect(position.x, position.y);
-    enemy.color = "red";
-    enemy.health = 2;
+    enemy.health = Math.floor(Math.random() * (3) + 1);
+    if (enemy.health == 1) {
+      enemy.color = "red";
+    }
+    else if (enemy.health == 2) {
+      enemy.color = "yellow";
+    }
+    else if (enemy.health == 3) {
+      enemy.color = "blue";
+    }
     enemy.width = 75;
     enemy.height = 75;
     enemy.collider = new CircleCollider(enemy, enemy.width / 2);
