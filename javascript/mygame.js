@@ -153,17 +153,15 @@ class MyGame extends Game
             {
               this.enemies.splice(j--,1);
               EnemiesKilled += 1;
+              this.respawnEnemy();
+              if(this.enemies.length > 5)
+              {return;}
+              this.respawnEnemy();
             }
-            else
+            else 
             {
               enemy.health -= 1;
             }
-
-           // this.respawnEnemy();
-            if(this.enemies.length > 5)
-            {return;}
-            
-            this.respawnEnemy();
           }
         }
         if(!this.screenbox.collider.intersectsPoint(bullet.position))
