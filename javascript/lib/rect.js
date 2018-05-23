@@ -32,6 +32,7 @@ class Rect extends Object2D
     super(x, y);
     this.width = 50;
     this.height = 50;
+    this.health = 0;
   }
 
   get left()

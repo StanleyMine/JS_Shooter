@@ -29,6 +29,7 @@ class Object2D
     this.velocity = new Vector2();
     this.friction = 0;
     this.angle = 0;
+    
   }
 
   get x()

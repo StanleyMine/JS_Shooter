@@ -12,6 +12,7 @@ class MyGame extends Game
     this.player = new Rect(750, 500);
     this.player.friction = .2;
     this.player.color = "blue";
+    this.player.health = 1;
     this.player.collider = new CircleCollider(this.player, this.player.width / 2);
     
     this.enemies = [];
@@ -83,13 +84,13 @@ class MyGame extends Game
   {
     let enemy = new Rect(position.x, position.y);
     enemy.color = "red";
+    enemy.health = 2;
     enemy.width = 75;
     enemy.height = 75;
     enemy.collider = new CircleCollider(enemy, enemy.width / 2);
     this.enemies.push(enemy);
-    //console.log(enemy.position);
-    //console.log(enemy.position.y);
   }
+
   updateEnemies()
   {
     for(let i = 0; i < this.enemies.length; ++i){
@@ -131,8 +132,18 @@ class MyGame extends Game
           if(bullet.collider.intersectsCircle(enemy.collider)) 
           {
             this.bullets.splice(i--, 1);
-            this.enemies.splice(j--,1);
-            EnemiesKilled += 1;
+
+            if(enemy.health == 1)
+            {
+              this.enemies.splice(j--,1);
+              EnemiesKilled += 1;
+            }
+            else
+            {
+              enemy.health -= 1;
+            }
+
+            
             
             this.respawnEnemy();
             if(this.enemies.length > 5)
