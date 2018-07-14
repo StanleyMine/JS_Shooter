@@ -88,6 +88,24 @@ class MyGame extends Game
     this.updateEnemies();
   }
 
+  updateColor(enemy)
+  {
+    if (enemy.color == "blue")
+    {
+      enemy.color = "yellow";
+      return;
+    }
+    if (enemy.color == "yellow")
+    {
+      enemy.color = "red";
+      return;
+    }  
+    if(enemy.color == "red")
+    {
+      return;
+    }
+  }
+
   createEnemies(position)
   {
     let enemy = new Rect(position.x, position.y);
@@ -160,6 +178,7 @@ class MyGame extends Game
             }
             else 
             {
+              this.updateColor(enemy);
               enemy.health -= 1;
             }
           }
