@@ -93,11 +93,15 @@ class MyGame extends Game
     if (enemy.color == "blue")
     {
       enemy.color = "yellow";
+      enemy.width = 75;
+      enemy.height = 75;
       return;
     }
     if (enemy.color == "yellow")
     {
       enemy.color = "red";
+      enemy.width = 50;
+      enemy.height = 50;
       return;
     }  
     if(enemy.color == "red")
@@ -112,15 +116,21 @@ class MyGame extends Game
     enemy.health = Math.floor(Math.random() * (3) + 1);
     if (enemy.health == 1) {
       enemy.color = "red";
+      enemy.width = 50;
+      enemy.height = 50;
     }
     else if (enemy.health == 2) {
       enemy.color = "yellow";
+      enemy.width = 75;
+      enemy.height = 75;
     }
     else if (enemy.health == 3) {
       enemy.color = "blue";
+      enemy.width = 100;
+      enemy.height = 100;
     }
-    enemy.width = 75;
-    enemy.height = 75;
+    //enemy.width = 75;
+   // enemy.height = 75;
     enemy.collider = new CircleCollider(enemy, enemy.width / 2);
     this.enemies.push(enemy);
   }
